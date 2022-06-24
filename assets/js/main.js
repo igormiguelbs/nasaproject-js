@@ -11,12 +11,28 @@ photoList.classList.add('photo-list')
 const photoSingle = document.createElement("div");
 photoSingle.classList.add('photo-single')
 
+function goBackUrl(){
+  photoList.classList.toggle('inactive');
+  photoSingle.classList.toggle('inactive');
+  photoSingle.innerHTML = "";
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
 async function goToUrl(e) {
+
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+
+  if(photoSingle.classList.contains("inactive")){
+    photoSingle.classList.toggle('inactive');
+  }
+
   const pictureSingle = await fetch( baseUrl + '&start_date=' + e + '&end_date=' + e);
   const picureSingleData = await pictureSingle.json();
   console.log(picureSingleData)
   photoList.classList.toggle('inactive');
-
+  
   const photoPic = document.createElement("img")
   photoPic.classList.add("single-photo")
   photoPic.setAttribute("src", picureSingleData[0].url)
@@ -34,11 +50,19 @@ async function goToUrl(e) {
   const photoSingleExplanationText = document.createTextNode(picureSingleData[0].explanation);
   photoSingleExplanation.appendChild(photoSingleExplanationText)
 
+  const goBack = document.createElement("p");
+  goBack.classList.add("go-back")
+  const goBackText = document.createTextNode("< Voltar");
+  goBack.appendChild(goBackText)
+
   photoListSection.appendChild(photoSingle)
   photoSingle.appendChild(photoPic);
   photoSingle.appendChild(photoSingleTitle);
   photoSingle.appendChild(photoSingleDate);
   photoSingle.appendChild(photoSingleExplanation);
+  photoSingle.appendChild(goBack);
+
+  goBack.addEventListener('click', goBackUrl)
 
 }
 

@@ -23,6 +23,9 @@ body{
   .photo-single{
     width: 50vw;
     margin: 0px auto 80px auto;
+    &.inactive{
+      display: none;
+    }
     .single-photo{
       width: 100%;
       height: auto;
@@ -42,6 +45,23 @@ body{
     p{
       font-size: 14px;
       line-height: 26px;
+    }
+    .go-back{
+      display: block;
+      width: fit-content;
+      padding: 10px 20px;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin: 20px auto;
+      border: 2px solid @white;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all ease 0.2;
+      &:hover{
+        background: @white;
+        color: @black;
+      }
     }
   }
   .photo-list{

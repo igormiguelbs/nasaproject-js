@@ -51,6 +51,9 @@ body {
   width: 50vw;
   margin: 0px auto 80px auto;
 }
+.photo-sec .photo-single.inactive {
+  display: none;
+}
 .photo-sec .photo-single .single-photo {
   width: 100%;
   height: auto;
@@ -70,6 +73,23 @@ body {
 .photo-sec .photo-single p {
   font-size: 14px;
   line-height: 26px;
+}
+.photo-sec .photo-single .go-back {
+  display: block;
+  width: fit-content;
+  padding: 10px 20px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 20px auto;
+  border: 2px solid #fff;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all ease 0.2;
+}
+.photo-sec .photo-single .go-back:hover {
+  background: #fff;
+  color: #484848;
 }
 .photo-sec .photo-list {
   list-style-type: none;
