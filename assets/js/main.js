@@ -1,27 +1,62 @@
-const baseUrl = 'https://api.nasa.gov/planetary/apod?api_key=I2XK0pHiXKhy0gJp3PZaKLjkrjWr4XDnKbk3hvGe&start_date=2022-06-01';
+const baseUrl = 'https://api.nasa.gov/planetary/apod?api_key=I2XK0pHiXKhy0gJp3PZaKLjkrjWr4XDnKbk3hvGe';
 
-var root = document.querySelector('#root');
+const root = document.querySelector('#root');
+
+const photoListSection = document.createElement("section");
+photoListSection.classList.add("photo-sec")
+
+const photoList = document.createElement("ul");
+photoList.classList.add('photo-list')
+
+const photoSingle = document.createElement("div");
+photoSingle.classList.add('photo-single')
+
+async function goToUrl(e) {
+  const pictureSingle = await fetch( baseUrl + '&start_date=' + e + '&end_date=' + e);
+  const picureSingleData = await pictureSingle.json();
+  console.log(picureSingleData)
+  photoList.classList.toggle('inactive');
+
+  const photoPic = document.createElement("img")
+  photoPic.classList.add("single-photo")
+  photoPic.setAttribute("src", picureSingleData[0].url)
+
+  const photoSingleTitle = document.createElement("h2");
+  const photoSingleTitleText = document.createTextNode(picureSingleData[0].title);
+  photoSingleTitle.appendChild(photoSingleTitleText)
+
+  const photoSingleDate = document.createElement("p");
+  photoSingleDate.classList.add("date")
+  const photoSingleDateText = document.createTextNode(picureSingleData[0].date);
+  photoSingleDate.appendChild(photoSingleDateText)
+
+  const photoSingleExplanation = document.createElement("p");
+  const photoSingleExplanationText = document.createTextNode(picureSingleData[0].explanation);
+  photoSingleExplanation.appendChild(photoSingleExplanationText)
+
+  photoListSection.appendChild(photoSingle)
+  photoSingle.appendChild(photoPic);
+  photoSingle.appendChild(photoSingleTitle);
+  photoSingle.appendChild(photoSingleDate);
+  photoSingle.appendChild(photoSingleExplanation);
+
+}
 
 async function getPictures() {
   
-  const pictureList = await fetch( baseUrl );
-  var picureData = await pictureList.json();
-  console.log(picureData)
+  const pictureList = await fetch( baseUrl + '&start_date=2022-06-01');
+  const picureData = await pictureList.json();
+  //console.log(picureData)
 
-  const photoListSection = document.createElement("section");
-  photoListSection.classList.add("photo-sec")
   const homeTitle = document.createElement("h1");
   const homeTitleText = document.createTextNode("NASA - Picture of the day");
   homeTitle.appendChild(homeTitleText);
-
-  const photoList = document.createElement("ul");
-  photoList.classList.add('photo-list')
 
   photoListSection.appendChild(homeTitle)
   photoListSection.appendChild(photoList)
   
   picureData.forEach(element => {
-    console.log(element.title)
+    //console.log(element.title)
 
     const photoListItem = document.createElement("li");
     const photoName = document.createTextNode(element.title);
@@ -32,6 +67,10 @@ async function getPictures() {
 
     photoListItem.appendChild(photoName);
     photoListItem.appendChild(photoDate)
+
+    photoListItem.addEventListener('click', function(){
+      goToUrl(element.date)
+    })
 
     photoList.appendChild(photoListItem);
 

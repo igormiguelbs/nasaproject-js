@@ -20,6 +20,30 @@ body{
     text-align: center;
     margin: 20px auto;
   }
+  .photo-single{
+    width: 50vw;
+    margin: 0px auto 80px auto;
+    .single-photo{
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid @white;
+      margin-bottom: 20px;
+    }
+    h2{
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    p.date{
+      text-align: center;
+      font-weight: bold;
+    }
+    p{
+      font-size: 14px;
+      line-height: 26px;
+    }
+  }
   .photo-list{
     list-style-type: none;
     width: 50vw;
@@ -43,6 +67,9 @@ body{
         background: @white;
         color: @black;
       }
+    }
+    &.inactive{
+      display: none;
     }
   }
 }
