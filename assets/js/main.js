@@ -48,7 +48,7 @@ async function goToUrl(e) {
 
   const photoSingleDate = document.createElement("p");
   photoSingleDate.classList.add("date")
-  const photoSingleDateText = document.createTextNode(picureSingleData[0].date);
+  const photoSingleDateText = document.createTextNode(picureSingleData[0].date.toString().slice(0, 10).split('-').reverse().join('/'));
   photoSingleDate.appendChild(photoSingleDateText)
 
   const photoSingleExplanation = document.createElement("p");
@@ -79,6 +79,7 @@ async function getPictures() {
       return response;
     })
   const picureData = await pictureList.json();
+  picureData.reverse()
   //console.log(picureData)
 
   const homeTitle = document.createElement("h1");
@@ -95,7 +96,7 @@ async function getPictures() {
     const photoName = document.createTextNode(element.title);
 
     const photoDate = document.createElement("span")
-    const photoDateText = document.createTextNode("Data: " + element.date)
+    const photoDateText = document.createTextNode("Data: " + element.date.toString().slice(0, 10).split('-').reverse().join('/'))
     photoDate.appendChild(photoDateText)
 
     photoListItem.appendChild(photoName);

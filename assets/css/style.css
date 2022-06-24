@@ -51,6 +51,16 @@ body {
     transform: rotate(359deg);
   }
 }
+@keyframes showlist {
+  from {
+    opacity: 0;
+    transform: translate3d(-30px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0px, 0, 0);
+  }
+}
 #loading {
   width: 70px;
   height: 70px;
@@ -68,6 +78,7 @@ body {
 .photo-sec .photo-single {
   width: 50vw;
   margin: 0px auto 80px auto;
+  animation: showlist 0.5s forwards;
 }
 .photo-sec .photo-single.inactive {
   display: none;
@@ -113,6 +124,7 @@ body {
   list-style-type: none;
   width: 50vw;
   margin: 30px auto 50px auto;
+  animation: showlist 0.5s forwards;
 }
 .photo-sec .photo-list li {
   background: rgba(0, 0, 0, 0.5);
