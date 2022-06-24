@@ -1,6 +1,7 @@
 const baseUrl = 'https://api.nasa.gov/planetary/apod?api_key=I2XK0pHiXKhy0gJp3PZaKLjkrjWr4XDnKbk3hvGe';
 
 const root = document.querySelector('#root');
+const loading = document.querySelector('#loading');
 
 const photoListSection = document.createElement("section");
 photoListSection.classList.add("photo-sec")
@@ -10,6 +11,10 @@ photoList.classList.add('photo-list')
 
 const photoSingle = document.createElement("div");
 photoSingle.classList.add('photo-single')
+
+function closeLoading(){
+  loading.classList.toggle('inactive');
+}
 
 function goBackUrl(){
   photoList.classList.toggle('inactive');
@@ -68,7 +73,11 @@ async function goToUrl(e) {
 
 async function getPictures() {
   
-  const pictureList = await fetch( baseUrl + '&start_date=2022-06-01');
+  const pictureList = await fetch( baseUrl + '&start_date=2022-06-01').then(
+    function(response) {
+      closeLoading();
+      return response;
+    })
   const picureData = await pictureList.json();
   //console.log(picureData)
 

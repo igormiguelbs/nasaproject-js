@@ -38,10 +38,28 @@
   padding: 0px;
 }
 body {
-  background: url(https://images.unsplash.com/photo-1603811594813-63f576d92fd0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1679&q=80) no-repeat center center;
+  background: url(https://images.unsplash.com/photo-1603811594813-63f576d92fd0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1679&q=80) center center;
   background-size: cover;
   color: #fff;
   font-family: 'Montserrat', sans-serif;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+#loading {
+  width: 70px;
+  height: 70px;
+  margin: 50vh auto 0px auto;
+  animation: rotation 2s infinite linear;
+  display: block;
+}
+#loading.inactive {
+  display: none;
 }
 .photo-sec h1 {
   text-align: center;
