@@ -1,4 +1,48 @@
+@import url('./colors.less');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&family=Share+Tech+Mono&display=swap');
+
 *{
   margin: 0px;
-  height: 0px;
+  padding: 0px;
+}
+
+body{
+  background: url(https://images.unsplash.com/photo-1603811594813-63f576d92fd0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1679&q=80) no-repeat center center;
+  background-size: cover;
+  color: @white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+//
+
+.photo-sec{
+  h1{
+    text-align: center;
+    margin: 20px auto;
+  }
+  .photo-list{
+    list-style-type: none;
+    width: 50vw;
+    margin: 30px auto 50px auto;
+    li{
+      background: rgba(0, 0, 0, 0.5);
+      display: block;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      border: 1px solid @white;
+      cursor: pointer;
+      transition: all ease 0.2s;
+      font-weight: bold;
+      span{
+        font-weight: normal;
+        display: block;
+        margin-top: 5px;
+      }
+      &:hover{
+        background: @white;
+        color: @black;
+      }
+    }
+  }
 }

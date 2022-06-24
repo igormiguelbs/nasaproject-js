@@ -1,4 +1,74 @@
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v24/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq6R9aX8.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v24/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq0N6aX8.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v24/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Ew-.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v24/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCuM70w-.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Share Tech Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sharetechmono/v15/J7aHnp1uDWRBEqV98dVQztYldFc7pA.ttf) format('truetype');
+}
 * {
   margin: 0px;
-  height: 0px;
+  padding: 0px;
+}
+body {
+  background: url(https://images.unsplash.com/photo-1603811594813-63f576d92fd0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1679&q=80) no-repeat center center;
+  background-size: cover;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+.photo-sec h1 {
+  text-align: center;
+  margin: 20px auto;
+}
+.photo-sec .photo-list {
+  list-style-type: none;
+  width: 50vw;
+  margin: 30px auto 50px auto;
+}
+.photo-sec .photo-list li {
+  background: rgba(0, 0, 0, 0.5);
+  display: block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  transition: all ease 0.2s;
+  font-weight: bold;
+}
+.photo-sec .photo-list li span {
+  font-weight: normal;
+  display: block;
+  margin-top: 5px;
+}
+.photo-sec .photo-list li:hover {
+  background: #fff;
+  color: #484848;
 }
