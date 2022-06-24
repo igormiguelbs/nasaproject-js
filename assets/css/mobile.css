@@ -1,0 +1,6 @@
+@media screen and (max-width: 768px) {
+  .photo-sec .photo-list,
+  .photo-sec .photo-single {
+    width: 80%;
+  }
+}
